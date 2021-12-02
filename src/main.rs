@@ -17,8 +17,8 @@ fn main() {
     let input_data: String = load_file(&filepath);
 
     //Day 1
-    day_1::run_challange(&input_data, Challange::One);
-    day_1::run_challange(&input_data, Challange::Two);
+    // day_1::run_challange(&input_data, Challange::One);
+    // day_1::run_challange(&input_data, Challange::Two);
 
     //Day 2
     // day_2::run_challange(&input_data, Challange::One);
