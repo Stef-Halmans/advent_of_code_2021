@@ -1,7 +1,7 @@
 use std::fs;
 
 pub fn run_challange_1(input_data: &str){
-    let depth_readings: Vec<u32> = generate_int_array(&input_data);
+    let depth_readings: Vec<u32> = generate_int_array(input_data);
 
     let larger_depth_mesurements: u32 = calculte_depth_increased(&depth_readings);
 
@@ -9,7 +9,7 @@ pub fn run_challange_1(input_data: &str){
 }
 
 pub fn run_challange_2(input_data: &str){
-    let depth_readings: Vec<u32> = generate_int_array(&input_data);
+    let depth_readings: Vec<u32> = generate_int_array(input_data);
 
     let measurement_windows = calculate_measurement_window(&depth_readings);
 
@@ -18,10 +18,6 @@ pub fn run_challange_2(input_data: &str){
     println!("{}", larger_depth_mesurements);
 }
 
-fn load_file(filename: &str) -> String {
-    let input_data = fs::read_to_string(filename).expect("Something went wrong reading the file");
-    input_data.trim().to_string()
-}
 
 fn generate_int_array(data: &str) -> Vec<u32> {
     let split = data.split('\n');

@@ -1,11 +1,15 @@
-use std::fs;
 use std::env;
 use std::path::Path;
 use std::fs::File;
 use std::io::prelude::*;
 
 mod day_1;
+mod day_2;
 
+pub enum Challange{
+    One,
+    Two
+}
 
 fn main() {
 
@@ -13,10 +17,12 @@ fn main() {
     let input_data: String = load_file(&filepath);
 
     //Day 1
-    day_1::run_challange_1(&input_data);
-    day_1::run_challange_2(&input_data);
+    // day_1::run_challange_1(&input_data);
+    // day_1::run_challange_2(&input_data);
 
     //Day 2
+    day_2::run_challange(&input_data, Challange::One);
+    day_2::run_challange(&input_data, Challange::Two);
 
 
 }
