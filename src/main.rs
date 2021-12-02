@@ -17,12 +17,12 @@ fn main() {
     let input_data: String = load_file(&filepath);
 
     //Day 1
-    // day_1::run_challange_1(&input_data);
-    // day_1::run_challange_2(&input_data);
+    day_1::run_challange(&input_data, Challange::One);
+    day_1::run_challange(&input_data, Challange::Two);
 
     //Day 2
-    day_2::run_challange(&input_data, Challange::One);
-    day_2::run_challange(&input_data, Challange::Two);
+    // day_2::run_challange(&input_data, Challange::One);
+    // day_2::run_challange(&input_data, Challange::Two);
 
 
 }
@@ -49,7 +49,7 @@ fn load_file(filepath: &str) -> String {
 
     match file.read_to_string(&mut file_content){
         Err(why) => panic!("could not read {}: {}", display, why),
-        Ok(_) => print!("loaded {}", display),
+        Ok(_) => println!("loaded {}", display),
     }
 
     file_content.trim().to_string()

@@ -1,23 +1,17 @@
-use std::fs;
+use crate::Challange;
 
-pub fn run_challange_1(input_data: &str){
+pub fn run_challange(input_data: &str, challange: Challange ){
     let depth_readings: Vec<u32> = generate_int_array(input_data);
 
-    let larger_depth_mesurements: u32 = calculte_depth_increased(&depth_readings);
+    let larger_depth_mesurements: u32 = calculate_depth_increased(
+        &match challange{
+            Challange::One => depth_readings,
+            Challange::Two => calculate_measurement_window(&depth_readings)
+        }
+    );
 
-    println!("{}", larger_depth_mesurements);
+    println!("amount of increasing depths: {}", larger_depth_mesurements);
 }
-
-pub fn run_challange_2(input_data: &str){
-    let depth_readings: Vec<u32> = generate_int_array(input_data);
-
-    let measurement_windows = calculate_measurement_window(&depth_readings);
-
-    let larger_depth_mesurements: u32 = calculte_depth_increased(&measurement_windows);
-
-    println!("{}", larger_depth_mesurements);
-}
-
 
 fn generate_int_array(data: &str) -> Vec<u32> {
     let split = data.split('\n');
@@ -31,7 +25,7 @@ fn generate_int_array(data: &str) -> Vec<u32> {
     values
 }
 
-fn calculte_depth_increased(depth_readings: &[u32]) -> u32 {
+fn calculate_depth_increased(depth_readings: &[u32]) -> u32 {
     let mut latest_depth: u32 = 0;
 
     let mut larger_depth_mesurements: u32 = 0;

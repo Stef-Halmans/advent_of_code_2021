@@ -8,6 +8,4 @@ panic = 'abort'
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-strum_macros = "0.23"
 
-strum = { version = "0.23", features = ["derive"] }

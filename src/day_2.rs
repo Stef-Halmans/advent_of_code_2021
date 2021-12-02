@@ -12,8 +12,6 @@ enum Location {
     Forward,
 }
 
-
-
 pub fn run_challange(input_data: &str, challange: Challange) {
     let movement_commands: Vec<MovementCommand> = create_commands(input_data);
 
