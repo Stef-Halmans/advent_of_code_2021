@@ -1,8 +1,6 @@
-
 use std::fs;
 
-pub fn run_part_1(){
-    let input_data = load_file("input.txt");
+pub fn run_challange_1(input_data: &str){
     let depth_readings: Vec<u32> = generate_int_array(&input_data);
 
     let larger_depth_mesurements: u32 = calculte_depth_increased(&depth_readings);
@@ -10,8 +8,7 @@ pub fn run_part_1(){
     println!("{}", larger_depth_mesurements);
 }
 
-pub fn run_part_2(){
-    let input_data = load_file("input.txt");
+pub fn run_challange_2(input_data: &str){
     let depth_readings: Vec<u32> = generate_int_array(&input_data);
 
     let measurement_windows = calculate_measurement_window(&depth_readings);
