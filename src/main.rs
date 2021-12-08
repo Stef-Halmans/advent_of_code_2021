@@ -6,6 +6,8 @@ use std::io::prelude::*;
 mod day_1;
 mod day_2;
 mod day_3;
+mod day_4;
+
 
 pub enum Challange{
     One,
@@ -28,6 +30,11 @@ fn main() {
     //Day 3
     // day_3::run_challange(&input_data, Challange::One);
     // day_3::run_challange(&input_data, Challange::Two);
+
+    //Day 4
+    day_4::run_challange(&input_data, Challange::One);
+    day_4::run_challange(&input_data, Challange::Two);
+
 
 
 }

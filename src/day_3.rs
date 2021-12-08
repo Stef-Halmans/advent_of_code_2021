@@ -20,11 +20,11 @@ pub fn run_challange(input_data: &str, challange: Challange) {
             let mut oxygen_bits = String::default();
             let mut scrubber_bits = String::default();
 
-            for bit in &oxygen_bytes[0]{
+            for bit in &oxygen_bytes[0] {
                 oxygen_bits.push(char::from_digit(*bit as u32, 10).unwrap());
             }
 
-            for bit in &scruber_bytes[0]{
+            for bit in &scruber_bytes[0] {
                 scrubber_bits.push(char::from_digit(*bit as u32, 10).unwrap());
             }
 
@@ -37,7 +37,6 @@ pub fn run_challange(input_data: &str, challange: Challange) {
             let maintenance = oxygen * scrubber;
 
             println!("maintenance: {}", maintenance);
-
         }
     }
 }
@@ -93,7 +92,11 @@ fn calculate_gamma_and_epsiton(columns_of_rows: &[Vec<u8>]) -> (u8, u8) {
     )
 }
 
-fn calculate_bits(columns_of_rows: &[Vec<u8>], column_number: u32, most_common_ones: bool) -> Vec<Vec<u8>> {
+fn calculate_bits(
+    columns_of_rows: &[Vec<u8>],
+    column_number: u32,
+    most_common_ones: bool,
+) -> Vec<Vec<u8>> {
     if columns_of_rows.len() == 1 {
         return columns_of_rows.to_owned();
     }
@@ -108,18 +111,17 @@ fn calculate_bits(columns_of_rows: &[Vec<u8>], column_number: u32, most_common_o
             rows_with_0.push(row.clone());
         }
     }
-    
     calculate_bits(
         if rows_with_0.len() > rows_with_1.len() && most_common_ones {
             &rows_with_0
         } else if rows_with_0.len() <= rows_with_1.len() && most_common_ones {
             &rows_with_1
-        } else if rows_with_0.len() <=rows_with_1.len() && !most_common_ones{
+        } else if rows_with_0.len() <= rows_with_1.len() && !most_common_ones {
             &rows_with_0
-        } else{
+        } else {
             &rows_with_1
         },
-        column_number + 1, 
-        most_common_ones
+        column_number + 1,
+        most_common_ones,
     )
 }
