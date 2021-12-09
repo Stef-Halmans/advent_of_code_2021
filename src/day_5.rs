@@ -17,7 +17,7 @@ struct Point {
 impl Point {
     fn create_point(input: &str) -> Point {
         let point_array: Vec<i32> = input
-            .split(",")
+            .split(',')
             .collect::<Vec<&str>>()
             .iter()
             .map(|x| x.parse::<i32>().expect("error"))
@@ -108,10 +108,6 @@ fn create_line_segments(input: &str) -> Vec<LineSegment> {
         line_segments.push(LineSegment::new(line));
     }
 
-    println!("line segment 1: {:?}", line_segments[0]);
-    println!("line segment 2: {:?}", line_segments[1]);
-    println!("last line segment: {:?}", line_segments.last().unwrap());
-
     line_segments
 }
 
@@ -126,11 +122,7 @@ fn calculate_points_on_lines(line_segments: &[LineSegment], include_diagonals: b
                 key.push(',');
                 key.push_str(&line_segment.point1.y.to_string());
 
-                if points.contains_key(&key) {
-                    *points.get_mut(&key).unwrap() += 1;
-                } else {
-                    points.insert(key, 1);
-                }
+                points.entry(key).and_modify(|e| *e += 1).or_insert(1);
             }
         }
         //vertical line
@@ -140,15 +132,32 @@ fn calculate_points_on_lines(line_segments: &[LineSegment], include_diagonals: b
                 key.push(',');
                 key.push_str(&i.to_string());
 
-                if points.contains_key(&key) {
-                    *points.get_mut(&key).unwrap() += 1;
-                } else {
-                    points.insert(key, 1);
-                }
+                points.entry(key).and_modify(|e| *e += 1).or_insert(1);
             }
         }
+
         //diagonal line
-        if !line_segment.same_x() && !line_segment.same_y() && include_diagonals {}
+        if !line_segment.same_x() && !line_segment.same_y() && include_diagonals {
+            for i in 0..(line_segment.point1.x - line_segment.point2.x).abs() + 1 {
+                let mut key: String = if line_segment.point1.x < line_segment.point2.x {
+                    line_segment.point1.x + i
+                } else {
+                    line_segment.point1.x - i
+                }
+                .to_string();
+                key.push(',');
+                key.push_str(
+                    &if line_segment.point1.y < line_segment.point2.y {
+                        line_segment.point1.y + i
+                    } else {
+                        line_segment.point1.y - i
+                    }
+                    .to_string(),
+                );
+
+                points.entry(key).and_modify(|e| *e += 1).or_insert(1);
+            }
+        }
     }
 
     let mut points_with_overlap = 0;
