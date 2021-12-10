@@ -9,6 +9,7 @@ mod day_3;
 mod day_4;
 mod day_5;
 mod day_6;
+mod day_10;
 
 
 pub enum Challange{
@@ -42,7 +43,12 @@ fn main() {
     // day_5::run_challange(&input_data, Challange::Two);
 
     //Day 6
-    day_6::run_challange(&input_data, Challange::One);
+    // day_6::run_challange(&input_data, Challange::One);
+    // day_6::run_challange(&input_data, Challange::Two);
+
+    //Day 10
+    day_10::run_challange(&input_data, Challange::One);
+
 
 
 

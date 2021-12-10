@@ -3,7 +3,10 @@ use crate::Challange;
 pub fn run_challange(input: &str, challange: Challange){
     let mut lanterfishes = create_lanterfish_timers(input);
 
-    let_days_pass(&mut lanterfishes, 256);
+    let_days_pass(&mut lanterfishes, match challange{
+        Challange::One => 80,
+        Challange::Two => 256
+    });
 
     println!("fish after 80 days {}", count_total_fishes(&lanterfishes));
 }
