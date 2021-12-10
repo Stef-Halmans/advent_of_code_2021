@@ -48,6 +48,8 @@ fn main() {
 
     //Day 10
     day_10::run_challange(&input_data, Challange::One);
+    day_10::run_challange(&input_data, Challange::Two);
+
 
 
 
