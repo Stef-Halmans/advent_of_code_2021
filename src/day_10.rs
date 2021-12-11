@@ -1,6 +1,7 @@
 use crate::Challange;
 
 pub fn run_challange(input_data: &str, challange: Challange) {
+ 
     let mut input_lines: Vec<Vec<char>> = input_data
         .lines()
         .collect::<Vec<&str>>()
