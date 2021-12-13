@@ -11,10 +11,14 @@ struct BingoBoard {
 pub fn run_challange(input_data: &str, challange: Challange) {
     let (bingo_input, mut bingo_boards) = create_input(input_data);
 
-    let best_bingo_board = find_best_or_worst_board(&mut bingo_boards, &bingo_input, match challange{
-        Challange::One => true,
-        Challange::Two => false
-    });
+    let best_bingo_board = find_best_or_worst_board(
+        &mut bingo_boards,
+        &bingo_input,
+        match challange {
+            Challange::One => true,
+            Challange::Two => false,
+        },
+    );
 
     let score = calculate_bingo_score(&best_bingo_board);
 
@@ -40,7 +44,7 @@ fn create_bingo_boards(input: &[&str]) -> Vec<BingoBoard> {
         values: [[0; 5]; 5],
         checked_of_values: [[false; 5]; 5],
         bingo_time: 1000,
-        last_checked_value: 0
+        last_checked_value: 0,
     };
 
     for i in 0..5 {
@@ -60,13 +64,16 @@ fn create_bingo_boards(input: &[&str]) -> Vec<BingoBoard> {
     bingo_boards
 }
 
-fn find_best_or_worst_board(boards: &mut [BingoBoard], input: &[u32], find_best_board: bool) -> BingoBoard {
+fn find_best_or_worst_board(
+    boards: &mut [BingoBoard],
+    input: &[u32],
+    find_best_board: bool,
+) -> BingoBoard {
     let mut best_bingo_board: BingoBoard = BingoBoard {
         values: [[0; 5]; 5],
         checked_of_values: [[false; 5]; 5],
-        bingo_time: if find_best_board{1000} else{0},
-        last_checked_value: 0
-
+        bingo_time: if find_best_board { 1000 } else { 0 },
+        last_checked_value: 0,
     };
 
     let mut last_checked_value: u32 = 0;
@@ -88,8 +95,8 @@ fn find_best_or_worst_board(boards: &mut [BingoBoard], input: &[u32], find_best_
                     best_bingo_board.values = board.values;
                     best_bingo_board.checked_of_values = board.checked_of_values;
                     best_bingo_board.last_checked_value = input[k] as u32;
-                } 
-                if best_bingo_board.bingo_time < board.bingo_time && !find_best_board{
+                }
+                if best_bingo_board.bingo_time < board.bingo_time && !find_best_board {
                     best_bingo_board.bingo_time = board.bingo_time;
                     best_bingo_board.values = board.values;
                     best_bingo_board.checked_of_values = board.checked_of_values;
@@ -102,7 +109,6 @@ fn find_best_or_worst_board(boards: &mut [BingoBoard], input: &[u32], find_best_
 
     best_bingo_board
 }
-
 
 fn has_bingo(checked_values: &[[bool; 5]; 5]) -> bool {
     'check_row: for i in 0..5 {

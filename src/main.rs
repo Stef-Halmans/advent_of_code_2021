@@ -3,14 +3,15 @@ use std::path::Path;
 use std::fs::File;
 use std::io::prelude::*;
 
-mod day_1;
-mod day_2;
-mod day_3;
-mod day_4;
-mod day_5;
-mod day_6;
-mod day_9;
-mod day_10;
+// mod day_1;
+// mod day_2;
+// mod day_3;
+// mod day_4;
+// mod day_5;
+// mod day_6;
+// mod day_9;
+// mod day_10;
+mod day_11;
 
 pub enum Challange{
     One,
@@ -51,10 +52,12 @@ fn main() {
     // day_10::run_challange(&input_data, Challange::Two);
 
     //Day 9 
-    day_9::run_challange(&input_data, Challange::One);
+    // day_9::run_challange(&input_data, Challange::One);
 
-    
+    //Day 11 
+    day_11::run_challange(&input_data, Challange::One);
 
+    day_11::run_challange(&input_data, Challange::Two);
 
 
 }
