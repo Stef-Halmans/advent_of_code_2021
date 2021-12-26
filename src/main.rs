@@ -9,10 +9,12 @@ use std::io::prelude::*;
 // mod day_4;
 // mod day_5;
 // mod day_6;
+mod day_7;
 // mod day_9;
 // mod day_10;
 // mod day_11;
-mod day_13;
+// mod day_12;
+// mod day_13;
 
 pub enum Challange{
     One,
@@ -48,6 +50,10 @@ fn main() {
     // day_6::run_challange(&input_data, Challange::One);
     // day_6::run_challange(&input_data, Challange::Two);
 
+    //Day 7
+    // day_7::run_challange(&input_data, Challange::One);
+    // day_7::run_challange(&input_data, Challange::Two);
+    
     //Day 10
     // day_10::run_challange(&input_data, Challange::One);
     // day_10::run_challange(&input_data, Challange::Two);
@@ -60,7 +66,7 @@ fn main() {
     // day_11::run_challange(&input_data, Challange::Two);
 
     //Day 12
-    day_13::run_challange(&input_data, Challange::Two);
+    // day_13::run_challange(&input_data, Challange::Two);
     // day_13::run_challange(&input_data, Challange::Two);
 }
 
@@ -97,26 +103,6 @@ mod tests {
     #[test]
     fn it_works() {
         // assert_eq!(2 + 2, 4);
-        crate::day_13::run_challange("6,10
-0,14
-9,10
-0,3
-10,4
-4,11
-6,0
-6,12
-4,1
-0,13
-10,12
-3,4
-3,0
-8,4
-1,10
-2,14
-8,10
-9,0
-
-fold along y=7
-fold along x=5", crate::Challange::Two)
+        crate::day_7::run_challange("16,1,2,0,4,2,7,1,2,14", crate::Challange::Two)
     }
 }

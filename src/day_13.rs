@@ -1,6 +1,6 @@
 use crate::Challange;
 use std::collections::HashMap;
-use std::collections::HashSet;
+
 pub fn run_challange(input_data: &str, challange: Challange) {
     let input_lines = input_data.lines();
     let mut are_points = true;
@@ -35,7 +35,6 @@ pub fn run_challange(input_data: &str, challange: Challange) {
     };
 
     for i in 0..runs {
-        let old_max_values = (max_values.0, max_values.1);
         execute_fold(&fold_commands[i], &mut points, &mut max_values);
     }
     println!("amount of points: {}", points.len());
