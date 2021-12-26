@@ -60,8 +60,8 @@ fn main() {
     // day_11::run_challange(&input_data, Challange::Two);
 
     //Day 12
-    // day_13::run_challange(&input_data, Challange::One);
     day_13::run_challange(&input_data, Challange::Two);
+    // day_13::run_challange(&input_data, Challange::Two);
 }
 
 fn read_filepath() -> String{
@@ -117,6 +117,6 @@ mod tests {
 9,0
 
 fold along y=7
-fold along x=5", crate::Challange::One)
+fold along x=5", crate::Challange::Two)
     }
 }
